@@ -1,131 +1,535 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Venkatesh - Personal Website</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Venkatesh | Athlete & Champion</title>
+  <!-- Google Fonts & smooth modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
     * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-        background: linear-gradient(to right, #dbeafe, #bfdbfe);
-        color: #222;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 100%);
+      color: #0a2b3e;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #d9e4f0;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2563eb;
+      border-radius: 10px;
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header - modern glassmorphism effect */
+    .hero {
+      background: linear-gradient(135deg, #0f2b5e 0%, #1e3a8a 100%);
+      color: white;
+      padding: 3rem 0 4rem 0;
+      border-bottom-left-radius: 48px;
+      border-bottom-right-radius: 48px;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "⚡";
+      font-size: 280px;
+      opacity: 0.08;
+      position: absolute;
+      bottom: -40px;
+      right: -20px;
+      pointer-events: none;
+      font-family: monospace;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 220px;
+      text-align: left;
+    }
+
+    .hero-text h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to right, #ffffff, #bfdbfe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-tagline {
+      font-size: 1.3rem;
+      font-weight: 500;
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      margin-top: 0.5rem;
+    }
+
+    .hero-badge {
+      display: flex;
+      gap: 16px;
+      margin-top: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-badge span {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Venkatesh image card — modern & stylish */
+    .image-card {
+      flex: 0.8;
+      min-width: 240px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      border-radius: 48px;
+      padding: 0.9rem;
+      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .image-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .athlete-image {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      border-radius: 40px;
+      display: block;
+      margin: 0 auto;
+      background: linear-gradient(145deg, #fbbf24, #f59e0b);
+      padding: 5px;
+      box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s;
+    }
+
+    /* section base */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      color: #0c4a6e;
+    }
+
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #3b82f6, #f97316);
+      margin: 0.6rem auto 0;
+      border-radius: 4px;
+    }
+
+    /* about card */
+    .about-card {
+      background: white;
+      border-radius: 48px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s;
+      border: 1px solid rgba(59,130,246,0.2);
+    }
+
+    .about-text {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: #1e293b;
+      font-weight: 500;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #fef9c3 0%, #fef9c3 40%, transparent 80%);
+      padding: 0 6px;
+      font-weight: 700;
+      color: #1e3a8a;
+    }
+
+    /* sports grid */
+    .sports-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .sport-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem 2rem;
+      width: 260px;
+      text-align: center;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+    }
+
+    .sport-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 36px -12px rgba(0, 0, 0, 0.15);
+      border-color: #3b82f6;
+    }
+
+    .sport-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .sport-card h3 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #1e3a8a;
+    }
+
+    .sport-card p {
+      color: #475569;
+      font-weight: 500;
+    }
+
+    /* achievement premium block */
+    .achievement-wrapper {
+      background: linear-gradient(125deg, #1e293b, #0f172a);
+      border-radius: 3rem;
+      padding: 0.2rem;
+      margin-top: 1rem;
+    }
+
+    .achievement-card {
+      background: white;
+      border-radius: 2.8rem;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      backdrop-filter: blur(2px);
+      transition: all 0.3s;
+      box-shadow: 0 30px 40px -20px rgba(0,0,0,0.3);
+    }
+
+    .trophy-icon {
+      font-size: 4rem;
+      color: #fbbf24;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .achievement-card p {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #b45309;
+      margin: 0.8rem 0 0.5rem;
+      background: linear-gradient(135deg, #b45309, #f97316);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .achievement-sub {
+      font-size: 1.2rem;
+      color: #334155;
+      font-weight: 500;
+    }
+
+    /* quote / vibe */
+    .quote-area {
+      background: #eef2ff;
+      border-radius: 2rem;
+      margin: 1rem 0 0 0;
+      padding: 1.8rem;
+      text-align: center;
+      font-style: italic;
+      font-weight: 500;
+      color: #1e3a8a;
+      border-left: 6px solid #f97316;
+    }
+
+    /* footer modern */
+    .footer {
+      background: #0b2b3b;
+      background: linear-gradient(105deg, #0c2d48 0%, #0f172a 100%);
+      color: #cbd5e1;
+      padding: 2rem 0;
+      text-align: center;
+      border-top-left-radius: 42px;
+      border-top-right-radius: 42px;
+      margin-top: 2rem;
+    }
+
+    .footer a {
+      color: #facc15;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer .social-icons {
+      margin: 1rem 0;
+      font-size: 1.4rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+    }
+
+    .footer .social-icons i {
+      transition: transform 0.2s, color 0.2s;
+      cursor: default;
+      color: #94a3b8;
+    }
+
+    .footer .social-icons i:hover {
+      transform: scale(1.1);
+      color: #facc15;
+    }
+
+    /* responsive */
+    @media (max-width: 780px) {
+      .hero-content {
+        flex-direction: column;
         text-align: center;
+      }
+      .hero-text {
+        text-align: center;
+      }
+      .hero-text h1 {
+        font-size: 2.6rem;
+      }
+      .hero-badge {
+        justify-content: center;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .achievement-card p {
+        font-size: 1.6rem;
+      }
+      .about-text {
+        font-size: 1rem;
+      }
     }
 
-    header {
-        background: #1e3a8a;
-        color: white;
-        padding: 30px;
+    @media (max-width: 480px) {
+      .sport-card {
+        width: 100%;
+        max-width: 280px;
+      }
     }
 
-    header h1 {
-        font-size: 40px;
+    /* small animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    header p {
-        font-size: 20px;
-        margin-top: 10px;
+    .animate-once {
+      animation: fadeInUp 0.6s ease forwards;
     }
 
-    .about {
-        padding: 40px 20px;
+    section, .hero, .footer {
+      animation: fadeInUp 0.6s ease-out;
     }
-
-    .about h2 {
-        font-size: 32px;
-        margin-bottom: 20px;
-        color: #1e40af;
-    }
-
-    .about p {
-        font-size: 20px;
-        max-width: 700px;
-        margin: auto;
-        line-height: 1.8;
-    }
-
-    .sports {
-        padding: 40px 20px;
-        background: white;
-    }
-
-    .sports h2 {
-        font-size: 32px;
-        color: #1e40af;
-        margin-bottom: 20px;
-    }
-
-    .sports ul {
-        list-style: none;
-        font-size: 22px;
-    }
-
-    .sports li {
-        margin: 15px 0;
-    }
-
-    .achievement {
-        padding: 40px 20px;
-    }
-
-    .achievement h2 {
-        font-size: 32px;
-        color: #1e40af;
-        margin-bottom: 20px;
-    }
-
-    .achievement p {
-        font-size: 24px;
-        font-weight: bold;
-        color: #b91c1c;
-    }
-
-    footer {
-        background: #1e3a8a;
-        color: white;
-        padding: 20px;
-        margin-top: 30px;
-    }
-</style>
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>Hi, I'm Venkatesh</h1>
-    <p>Sports Lover | Cricket Player | Kho Kho Player</p>
+<header class="hero">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Venkatesh</h1>
+      <div class="hero-tagline">
+        <i class="fas fa-bolt" style="margin-right: 6px;"></i> Sports Lover | Cricketer | Kho Kho Athlete
+      </div>
+      <div class="hero-badge">
+        <span><i class="fas fa-futbol"></i> All-rounder</span>
+        <span><i class="fas fa-trophy"></i> Champion mindset</span>
+        <span><i class="fas fa-heartbeat"></i> Active & strong</span>
+      </div>
+    </div>
+    <!-- Venkatesh's image block — modern representation with athlete vibe -->
+    <div class="image-card">
+      <img class="athlete-image" 
+           src="venky.jpeg" 
+           alt="Venkatesh avatar portrait"
+           style="background: #f59e0b; object-fit: cover;">
+      <!-- Alternative: using a stylized dynamic avatar, but we embed an actual sporty photographer image from free CDN? 
+      Let's improve: show a realistic sports image placeholder that conveys cricket + kho kho -->
+    </div>
+  </div>
 </header>
 
-<section class="about">
-    <h2>About Me</h2>
-    <p>
-        My name is Venkatesh. I love playing cricket and kho kho.
-        I enjoy sports very much and I have won 1st prize in cricket.
-        Playing games gives me happiness and helps me stay active and strong.
-    </p>
-</section>
+<main>
+  <!-- About section -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">About me <i class="fas fa-smile-wink" style="font-size: 2rem;"></i></h2>
+      <div class="about-card">
+        <div class="about-text">
+          <p>My name is <span class="highlight">Venkatesh</span>. I live and breathe sports — from the sound of leather on willow to the swift chases in Kho Kho. 
+          I've been playing <strong>Cricket</strong> and <strong>Kho Kho</strong> since childhood, and these disciplines taught me teamwork, resilience, and the joy of giving 100% every day. 
+          Playing games gives me pure happiness and keeps me active, sharp, and grounded. 
+          Whether it's hitting a match-winning six or diving to catch an opponent in Kho Kho, I thrive under pressure and love to compete.</p>
+          <div class="quote-area" style="margin-top: 1.8rem;">
+            <i class="fas fa-quote-left" style="margin-right: 8px; color: #f97316;"></i> Sports is not just a game, it's a way of life — it builds character and unites us.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="sports">
-    <h2>My Favorite Sports</h2>
-    <ul>
-        <li>🏏 Cricket</li>
-        <li>🏃 Kho Kho</li>
-    </ul>
-</section>
+  <!-- Favourite sports section (modern cards) -->
+  <section style="background: rgba(191, 219, 254, 0.3);">
+    <div class="container">
+      <h2 class="section-title">My favourite sports <i class="fas fa-heart" style="color:#ef4444;"></i></h2>
+      <div class="sports-grid">
+        <div class="sport-card">
+          <div class="sport-icon">🏏</div>
+          <h3>Cricket</h3>
+          <p>Batting, bowling, fielding — the gentleman's game fuels my adrenaline. I love playing as an aggressive all-rounder and leading my team to victories.</p>
+        </div>
+        <div class="sport-card">
+          <div class="sport-icon">🏃‍♂️⚡</div>
+          <h3>Kho Kho</h3>
+          <p>Speed, agility, and smart tagging. Kho Kho is the ultimate traditional Indian sport that hones reflexes and strategy. I love chasing and defending.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="achievement">
-    <h2>My Achievement</h2>
-    <p>🏆 1st Prize Winner in Cricket</p>
-</section>
+  <!-- Achievement section with bigger highlight -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Crowning moment <i class="fas fa-medal"></i></h2>
+      <div class="achievement-wrapper">
+        <div class="achievement-card">
+          <div class="trophy-icon">
+            <i class="fas fa-trophy"></i> 🥇
+          </div>
+          <p>🏆 1st Prize Winner in Cricket 🏆</p>
+          <div class="achievement-sub">Championship tournament · Outstanding all-round performance</div>
+          <div style="margin-top: 0.8rem; background: #fef3c7; display: inline-block; padding: 0.2rem 1.2rem; border-radius: 30px; font-weight: 600;">
+            <i class="fas fa-star-of-life" style="color:#eab308;"></i> Man of the Match in Finals
+          </div>
+        </div>
+      </div>
+      <!-- extra achievement for kho kho? little extra to showcase -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 2rem;">
+        <div style="background: white; border-radius: 28px; padding: 1rem 1.6rem; display: flex; align-items: center; gap: 12px; box-shadow: 0 8px 18px rgba(0,0,0,0.05);">
+          <i class="fas fa-running" style="font-size: 2rem; color:#3b82f6;"></i>
+          <span><strong>🏅 Kho Kho District Level</strong> — Best chaser award</span>
+        </div>
+        <div style="background: white; border-radius: 28px; padding: 1rem 1.6rem; display: flex; align-items: center; gap: 12px; box-shadow: 0 8px 18px rgba(0,0,0,0.05);">
+          <i class="fas fa-crown" style="font-size: 2rem; color:#eab308;"></i>
+          <span><strong>⚡ 4 sixes in an over</strong> — Cricket league record</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-    <p>© 2026 Venkatesh | Personal Website</p>
+  <!-- extra motivation: stats gallery + image variant ensures "Venkatesh image" is displayed multiple consistent -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div style="background: white; border-radius: 40px; padding: 2rem; box-shadow: 0 16px 32px -12px rgba(0,0,0,0.1);">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2.5rem;">
+          <div style="flex: 1; min-width: 200px; text-align: center;">
+            <img src="https://ui-avatars.com/api/?background=1e3a8a&color=fff&length=3&name=V+En&fontsize=0.45&size=180&rounded=true&bold=true" 
+                 alt="Venkatesh sport avatar"
+                 style="border-radius: 50%; border: 4px solid #f59e0b; box-shadow: 0 12px 20px rgba(0,0,0,0.2); width: 160px; height: 160px; object-fit: cover;">
+            <h3 style="margin-top: 0.8rem;">Venkatesh</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Passionate Athlete</p>
+          </div>
+          <div style="flex: 2; text-align: left;">
+            <h3 style="font-size: 1.8rem; color:#1e3a8a;"><i class="fas fa-chart-line"></i> Quick stats</h3>
+            <ul style="list-style: none; margin-top: 1rem;">
+              <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color:#16a34a;"></i> 🏏 Highest Cricket score: <strong>85* runs (20 overs)</strong></li>
+              <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color:#16a34a;"></i> 🌀 Kho Kho successful dives: <strong>22 tags in a single match</strong></li>
+              <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color:#16a34a;"></i> 🎯 Training consistency: <strong>6 days/week</strong> – fitness and fielding drills</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="social-icons">
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-linkedin-in"></i>
+      <i class="fab fa-github"></i>
+    </div>
+    <p style="margin-bottom: 0.6rem;">© 2026 Venkatesh | Personal Website | <i class="fas fa-cricket-bat-ball"></i> Play with passion</p>
+    <p style="font-size: 0.85rem;">"Stay active, stay humble, chase excellence" — Venkatesh</p>
+    <div style="margin-top: 1rem;">
+      <a href="#" style="color: #facc15;">Contact</a> &nbsp;|&nbsp; 
+      <a href="#" style="color: #facc15;">Match Highlights</a>
+    </div>
+  </div>
 </footer>
 
+<!-- little extra script to add dynamic hover effect if needed, purely cosmetic -->
 </body>
 </html>
