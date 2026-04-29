@@ -1,3 +1,4 @@
+    }
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,7 +118,7 @@
         gap: 8px;
     }
 
-    /* Venkatesh Image Card - FIXED with reliable inline SVG & gradient */
+    /* Venkatesh Image Card - Using local venky.jpeg */
     .image-card {
         flex: 0.8;
         min-width: 260px;
@@ -133,35 +134,19 @@
         transform: translateY(-6px);
     }
 
-    /* Custom Sporty Avatar - Will always display! */
-    .athlete-avatar {
+    .athlete-image {
         width: 100%;
-        max-width: 260px;
+        max-width: 280px;
         height: auto;
         aspect-ratio: 1/1;
         border-radius: 40px;
         display: block;
         margin: 0 auto;
         background: linear-gradient(145deg, #fbbf24, #f59e0b);
+        padding: 5px;
         box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.3);
         transition: all 0.3s;
         object-fit: cover;
-    }
-
-    /* SVG Avatar Container */
-    .avatar-svg-container {
-        width: 100%;
-        max-width: 260px;
-        margin: 0 auto;
-        border-radius: 40px;
-        overflow: hidden;
-        background: linear-gradient(145deg, #1e3a8a, #3b82f6);
-    }
-
-    svg.venkatesh-avatar {
-        width: 100%;
-        height: auto;
-        display: block;
     }
 
     /* Sections */
@@ -251,6 +236,11 @@
         color: #1e3a8a;
     }
 
+    .sport-card p {
+        color: #475569;
+        font-weight: 500;
+    }
+
     .achievement-wrapper {
         background: linear-gradient(125deg, #1e293b, #0f172a);
         border-radius: 3rem;
@@ -278,6 +268,12 @@
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
+    }
+
+    .achievement-sub {
+        font-size: 1.1rem;
+        color: #334155;
+        font-weight: 500;
     }
 
     .quote-area {
@@ -338,6 +334,9 @@
         .achievement-card p {
             font-size: 1.6rem;
         }
+        .about-text {
+            font-size: 1rem;
+        }
     }
 
     @keyframes fadeInUp {
@@ -372,47 +371,13 @@
             </div>
         </div>
 
-        <!-- VENKATESH AVATAR - FIXED: Using custom SVG that ALWAYS displays -->
+        <!-- VENKATESH IMAGE - Using local venky.jpeg file -->
         <div class="image-card">
-            <div class="avatar-svg-container">
-                <svg class="venkatesh-avatar" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Background circle -->
-                    <circle cx="200" cy="200" r="198" fill="url(#grad1)" stroke="#fbbf24" stroke-width="4"/>
-                    <!-- Hair -->
-                    <path d="M120 160 Q130 110 200 105 Q270 110 280 160 Q275 140 200 135 Q125 140 120 160Z" fill="#1a1a2e"/>
-                    <path d="M115 165 Q120 120 200 115 Q280 120 285 165" stroke="#1a1a2e" stroke-width="8" fill="none"/>
-                    <!-- Face -->
-                    <ellipse cx="200" cy="210" rx="75" ry="85" fill="#e8b87a"/>
-                    <!-- Eyes -->
-                    <ellipse cx="165" cy="195" rx="12" ry="8" fill="white"/>
-                    <ellipse cx="235" cy="195" rx="12" ry="8" fill="white"/>
-                    <circle cx="168" cy="196" r="5" fill="#2d1b0e"/>
-                    <circle cx="238" cy="196" r="5" fill="#2d1b0e"/>
-                    <!-- Eyebrows -->
-                    <path d="M150 182 Q160 175 175 180" stroke="#5c3a1e" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    <path d="M225 180 Q240 175 250 182" stroke="#5c3a1e" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    <!-- Smile -->
-                    <path d="M175 235 Q200 255 225 235" stroke="#b5452c" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    <!-- Sporty red bandana/headband -->
-                    <path d="M105 150 Q200 130 295 150 L290 168 Q200 148 110 168Z" fill="#dc2626" opacity="0.9"/>
-                    <path d="M105 150 L95 160 L105 168Z" fill="#dc2626"/>
-                    <path d="M295 150 L305 160 L295 168Z" fill="#dc2626"/>
-                    <!-- Cricket bat on shoulder (sporty touch) -->
-                    <rect x="295" y="170" width="8" height="85" rx="3" fill="#8B5A2B" transform="rotate(-25 299 212)"/>
-                    <ellipse cx="305" cy="260" rx="18" ry="12" fill="#DEB887" transform="rotate(-25 305 260)"/>
-                    <!-- Kho Kho running stripes on shirt -->
-                    <path d="M160 270 Q200 265 240 270" stroke="#3b82f6" stroke-width="4" fill="none"/>
-                    <path d="M155 285 Q200 280 245 285" stroke="#3b82f6" stroke-width="4" fill="none"/>
-                    <!-- Gradients -->
-                    <defs>
-                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#1e3a8a"/>
-                            <stop offset="100%" style="stop-color:#3b82f6"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
-            <p style="text-align: center; margin-top: 12px; color: white; font-weight: 600;">🏏 Venkatesh 🏃</p>
+            <img class="athlete-image" 
+                 src="venky.jpeg" 
+                 alt="Venkatesh - Sports Champion"
+                 onerror="this.onerror=null; this.src='https://placehold.co/400x400/1e3a8a/white?text=Venkatesh';">
+            <p style="text-align: center; margin-top: 12px; color: white; font-weight: 600;">🏏 Venkatesh | Cricket & Kho Kho Player 🏃</p>
         </div>
     </div>
 </header>
@@ -425,9 +390,10 @@
                 <div class="about-text">
                     <p>My name is <span class="highlight">Venkatesh</span>. I live and breathe sports — from the sound of leather on willow to the swift chases in Kho Kho. 
                     I've been playing <strong>Cricket</strong> and <strong>Kho Kho</strong> since childhood, and these disciplines taught me teamwork, resilience, and the joy of giving 100% every day. 
-                    Playing games gives me pure happiness and keeps me active, sharp, and grounded.</p>
+                    Playing games gives me pure happiness and keeps me active, sharp, and grounded. Whether it's hitting a match-winning six or diving to catch an opponent in Kho Kho, 
+                    I thrive under pressure and love to compete.</p>
                     <div class="quote-area">
-                        <i class="fas fa-quote-left"></i> Sports is not just a game, it's a way of life — it builds character and unites us.
+                        <i class="fas fa-quote-left" style="margin-right: 8px;"></i> Sports is not just a game, it's a way of life — it builds character and unites us.
                     </div>
                 </div>
             </div>
@@ -441,12 +407,12 @@
                 <div class="sport-card">
                     <div class="sport-icon">🏏</div>
                     <h3>Cricket</h3>
-                    <p>Batting, bowling, fielding — the gentleman's game fuels my adrenaline. Aggressive all-rounder who leads from the front.</p>
+                    <p>Batting, bowling, fielding — the gentleman's game fuels my adrenaline. I love playing as an aggressive all-rounder and leading my team to victories.</p>
                 </div>
                 <div class="sport-card">
                     <div class="sport-icon">🏃‍♂️⚡</div>
                     <h3>Kho Kho</h3>
-                    <p>Speed, agility, and smart tagging. Traditional Indian sport that sharpens reflexes and strategy. Love chasing!</p>
+                    <p>Speed, agility, and smart tagging. Kho Kho is the ultimate traditional Indian sport that hones reflexes and strategy. I love chasing and defending.</p>
                 </div>
             </div>
         </div>
@@ -485,9 +451,10 @@
             <div style="background: white; border-radius: 40px; padding: 2rem; box-shadow: 0 16px 32px -12px rgba(0,0,0,0.1);">
                 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem;">
                     <div style="flex: 1; text-align: center;">
-                        <div style="width: 140px; height: 140px; margin: 0 auto; background: linear-gradient(145deg, #fbbf24, #f59e0b); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-user-circle" style="font-size: 90px; color: white;"></i>
-                        </div>
+                        <img src="venky.jpeg" 
+                             alt="Venkatesh" 
+                             style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid #f59e0b; box-shadow: 0 12px 20px rgba(0,0,0,0.2);"
+                             onerror="this.onerror=null; this.src='https://placehold.co/140x140/1e3a8a/white?text=V';">
                         <h3 style="margin-top: 0.8rem;">Venkatesh</h3>
                         <p><i class="fas fa-map-marker-alt"></i> Passionate Athlete</p>
                     </div>
@@ -496,7 +463,8 @@
                         <ul style="list-style: none; margin-top: 1rem;">
                             <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color:#16a34a;"></i> 🏏 Highest Cricket Score: <strong>85* runs (20 overs)</strong></li>
                             <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color:#16a34a;"></i> 🌀 Kho Kho Successful Tags: <strong>22 in a single match</strong></li>
-                            <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color:#16a34a;"></i> 🎯 Training Consistency: <strong>6 days/week</strong></li>
+                            <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color:#16a34a;"></i> 🎯 Training Consistency: <strong>6 days/week</strong> – fitness and fielding drills</li>
+                            <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color:#16a34a;"></i> 🏆 Tournaments Won: <strong>5+ local championships</strong></li>
                         </ul>
                     </div>
                 </div>
@@ -511,9 +479,14 @@
             <i class="fab fa-instagram"></i>
             <i class="fab fa-twitter"></i>
             <i class="fab fa-linkedin-in"></i>
+            <i class="fab fa-github"></i>
         </div>
         <p>© 2026 Venkatesh | Personal Website | <i class="fas fa-cricket-bat-ball"></i> Play with passion</p>
         <p style="font-size: 0.85rem; margin-top: 0.5rem;">"Stay active, stay humble, chase excellence" — Venkatesh</p>
+        <div style="margin-top: 1rem;">
+            <a href="#" style="color: #facc15; text-decoration: none;">Contact</a> &nbsp;|&nbsp; 
+            <a href="#" style="color: #facc15; text-decoration: none;">Match Highlights</a>
+        </div>
     </div>
 </footer>
 
